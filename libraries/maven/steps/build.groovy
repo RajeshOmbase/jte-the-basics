@@ -57,8 +57,11 @@ node {
             echo "Build.xml Content:\n${buildXmlContent}"
             //def antHome = tool 'Ant_Home'
             withAnt(installation: 'Ant_Home') {
+                sh 'ls -l'
+                sh 'ant clean compile jspDeploy target war'
+                
             // Your build steps here    
-            sh 'ant clean compile jspDeploy target war'
+            
     }
 
         }
