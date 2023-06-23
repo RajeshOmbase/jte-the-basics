@@ -48,7 +48,7 @@ node {
 
         //var = echo 'Current directory: ' + pwd()
 
-            sh 'ls /home/jenkins/agent/workspace/vikas_test_pipeline_new/dmifactory'
+            sh 'ls /home/jenkins/agent/workspace/jte-job/dmifactory'
 
         
 
