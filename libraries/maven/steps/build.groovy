@@ -57,11 +57,15 @@ node {
             echo "Build.xml Content:\n${buildXmlContent}"
             //def antHome = tool 'Ant_Home'
             withAnt(installation: 'Ant_Home') {
-                def currentDir1 = sh(returnStdout: true,script: 'pwd').trim()
-                echo "Current directory: ${currentDir1}"
-                sh "ls ${currentDir1}"
-                sh 'ls -l'
-                sh 'ant clean compile jspDeploy target war'
+                dir('/home/jenkins/agent/workspace/jte-job/dmifactory') {
+                    sh 'ant clean compile jspDeploy target war'
+                }
+                //def currentDir1 = sh(returnStdout: true,script: 'pwd').trim()
+                //echo "Current directory: ${currentDir1}"
+                //sh "ls ${currentDir1}"
+                //sh 'ls -l'
+                
+                
                 
             // Your build steps here    
             
