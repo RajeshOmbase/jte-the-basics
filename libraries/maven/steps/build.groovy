@@ -50,7 +50,7 @@ node {
 
             sh 'ls /home/jenkins/agent/workspace/jte-job/dmifactory'
 
-            def tools = [ant: 'Ant Home']
+            def tools = [ant: 'Ant_Home']
             def buildXmlPath = "${env.WORKSPACE}/dmifactory/build.xml"
             def buildXmlContent = readFile("${env.WORKSPACE}/dmifactory/build.xml")
             echo "Build.xml Content:\n${buildXmlContent}"
