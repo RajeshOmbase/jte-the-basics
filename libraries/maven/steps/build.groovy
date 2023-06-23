@@ -57,6 +57,7 @@ node {
             //def antHome = tool 'Ant_Home'
             withAnt(installation: 'Ant_Home') {
             // Your build steps here
+            sh 'pwd'
             sh 'ant clean compile jspDeploy target war'
     }
 
