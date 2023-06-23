@@ -57,11 +57,14 @@ node {
             //def antHome = tool 'Ant_Home'
             withAnt(installation: 'Ant_Home') {
             // Your build steps here
-            def currentDir = sh(returnStdout: true,script: 'pwd').trim()
+            def process = new ProcessBuilder('pwd').start()
+            process.waitFor()
+            def currentDir = process.inputStream.text.trim()
 
-                // Print current directory
+            
 
-            echo "Current directory: ${currentDir}"
+            // Print current directory
+            println "Current directory: ${currentDir}"
             sh 'ant clean compile jspDeploy target war'
     }
 
