@@ -50,7 +50,15 @@ node {
 
             sh 'ls /home/jenkins/agent/workspace/jte-job/dmifactory'
 
-        
+            def tools = [ant: 'Ant Home']
+            def buildXmlPath = "${env.WORKSPACE}/dmifactory/build.xml"
+            def buildXmlContent = readFile("${env.WORKSPACE}/dmifactory/build.xml")
+            echo "Build.xml Content:\n${buildXmlContent}"
+            //def antHome = tool 'Ant_Home'
+            withAnt(installation: 'Ant_Home') {
+            // Your build steps here
+            sh 'ant clean compile jspDeploy target war'
+    }
 
         }
 
