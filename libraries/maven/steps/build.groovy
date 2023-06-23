@@ -1,5 +1,6 @@
 void call(){
 node {
+    def tools = [ant: 'Ant_Home']
     stage("Maven: Build"){
         println "build from the maven library"	
         
@@ -50,21 +51,13 @@ node {
 
             sh 'ls /home/jenkins/agent/workspace/jte-job/dmifactory'
 
-            def tools = [ant: 'Ant_Home']
+            //def tools = [ant: 'Ant_Home']
             def buildXmlPath = "${env.WORKSPACE}/dmifactory/build.xml"
             def buildXmlContent = readFile("${env.WORKSPACE}/dmifactory/build.xml")
             echo "Build.xml Content:\n${buildXmlContent}"
             //def antHome = tool 'Ant_Home'
             withAnt(installation: 'Ant_Home') {
-            // Your build steps here
-            def process = new ProcessBuilder('pwd').start()
-            process.waitFor()
-            def currentDir = process.inputStream.text.trim()
-
-            
-
-            // Print current directory
-            println "Current directory: ${currentDir}"
+            // Your build steps here    
             sh 'ant clean compile jspDeploy target war'
     }
 
