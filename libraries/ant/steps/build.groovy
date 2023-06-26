@@ -49,7 +49,7 @@ node {
 
         //var = echo 'Current directory: ' + pwd()
 
-            sh 'ls /home/jenkins/agent/workspace/jte-job/dmifactory'
+            sh 'ls /home/jenkins/agent/workspace/CI-Job/dmifactory'
 
             //def tools = [ant: 'Ant_Home']
             def buildXmlPath = "${env.WORKSPACE}/dmifactory/build.xml"
