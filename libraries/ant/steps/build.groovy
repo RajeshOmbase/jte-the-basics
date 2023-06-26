@@ -1,8 +1,8 @@
 void call(){
 node {
     def tools = [ant: 'Ant_Home']
-    stage("Maven: Build"){
-        println "build from the maven library"	
+    stage("Ant: Build"){
+        println "build from the Ant library"	
         
 
 // Checkout code from SVN repository changes
