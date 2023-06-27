@@ -49,7 +49,7 @@ node {
 
         //var = echo 'Current directory: ' + pwd()
 
-            sh 'ls /home/jenkins/agent/workspace/CI-Job/dmifactory'
+            //sh 'ls /home/jenkins/agent/workspace/CI-Job/dmifactory'
 
             //def tools = [ant: 'Ant_Home']
             def buildXmlPath = "${env.WORKSPACE}/dmifactory/build.xml"
@@ -57,7 +57,7 @@ node {
             echo "Build.xml Content:\n${buildXmlContent}"
             //def antHome = tool 'Ant_Home'
             withAnt(installation: 'Ant_Home') {
-                dir('/home/jenkins/agent/workspace/CI-Job/dmifactory') {
+                dir(${currentDir}/'dmifactory') {
                     sh 'ant clean compile jspDeploy target war'
                 }
                 //def currentDir1 = sh(returnStdout: true,script: 'pwd').trim()
