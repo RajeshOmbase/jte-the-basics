@@ -5,15 +5,8 @@ void call()
 {
     node 
 {
-    println "start agent"
-    label 'jenkins-slave'
-    print "hello"
-    agent {
-            // Replace with the label of your Jenkins slave
-    }
     stage('svn:code') {
         String svn_repo = config.svn_repo
-                 // Checkout code from SVN repository changes
         checkout([$class: 'SubversionSCM', 
         additionalCredentials: [], 
         excludedCommitMessages: '', 
