@@ -1,6 +1,9 @@
 libraries{
     //merge = true
     svn 
+    {
+        svn_repo = "https://svn.riouxsvn.com/dmifactory"
+    }
     ant
     sonarqube
     {

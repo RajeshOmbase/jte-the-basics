@@ -12,6 +12,7 @@ void call()
             // Replace with the label of your Jenkins slave
     }
     stage('svn:code') {
+        String svn_repo = config.svn_repo
                  // Checkout code from SVN repository changes
         checkout([$class: 'SubversionSCM', 
         additionalCredentials: [], 
@@ -25,7 +26,7 @@ void call()
         locations: [[credentialsId: 'svn_credential_pipeline', 
                     depthOption: 'infinity', 
                     ignoreExternalsOption: true, 
-                    remote: 'https://svn.riouxsvn.com/dmifactory']],
+                    remote: ${svn_repo}]],
         workspaceUpdater: [$class: 'UpdateUpdater']])
         sh 'ls -l'
         // Set the path to the build.xml file
