@@ -7,7 +7,7 @@ libraries{
     ant
     sonarqube
     {
-        projectKey = "SonarQubeScanner"
+        projectKey = "CalculatorApp"
         sonarHostUrl = "http://ec2-35-83-131-175.us-west-2.compute.amazonaws.com"
 
     }
