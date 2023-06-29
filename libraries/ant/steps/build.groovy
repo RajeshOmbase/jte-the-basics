@@ -1,7 +1,7 @@
 void call(){
     node
 {
-    def tools = [ant: 'Ant_Home']
+    def tools = [ant: 'Ant_Home', sonarqubeScanner: 'SonarQubeScanner']
     stage("Ant: Build"){
         String svn_repo = config.svn_repo
         println "build from the Ant library"	
@@ -72,7 +72,7 @@ void call(){
             println "static code analysis from the sonarqube library and test1" 
             script {
                 echo "SonarQube analysis"
-                def scannerHome = tool 'SonarQubeScanner'
+                //def tools = tool 'SonarQubeScanner'
                 withSonarQubeEnv('sonarserver') {
                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.host.url=${sonarHostUrl} -Dsonar.sources=src -Dsonar.java.binaries=${currentDir}/dmifactory/build -Dsonar.log.level=DEBUG"
 
