@@ -1,5 +1,6 @@
 void call()
 {   
+    def another_script = load 'jte-the-basics/libraries/ant/steps/build.groovy'
     def tools = [ant: 'Ant_Home']
     stage("Ant: Build"){
         script
