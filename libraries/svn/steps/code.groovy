@@ -26,7 +26,7 @@ void call()
         locations: [[credentialsId: 'svn_credential_pipeline', 
                     depthOption: 'infinity', 
                     ignoreExternalsOption: true, 
-                    remote: ${svn_repo}]],
+                    remote: svn_repo]],
         workspaceUpdater: [$class: 'UpdateUpdater']])
         sh 'ls -l'
         // Set the path to the build.xml file
