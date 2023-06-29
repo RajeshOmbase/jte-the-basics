@@ -75,7 +75,8 @@ void call(){
                 def scannerHome = tool 'SonarQubeScanner'
                 withSonarQubeEnv('SonarQubeScanner') {
                     echo "Current directory: ${currentDir}"
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.host.url=${sonarHostUrl} -Dsonar.sources=src -Dsonar.java.binaries=${currentDir}/dmifactory/build -Dsonar.log.level=DEBUG"
+                    sh "ls ${currentDir}"
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.host.url=${sonarHostUrl} -Dsonar.sources=${currentDir}/dmifactory/src  -Dsonar.java.binaries=${currentDir}/dmifactory/build -Dsonar.log.level=DEBUG"
 
                         // dmifactory/build
                         //-Dsonar.log
