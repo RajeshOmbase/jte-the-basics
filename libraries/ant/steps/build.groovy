@@ -72,9 +72,9 @@ void call(){
             println "static code analysis from the sonarqube library and test1" 
             script {
                 echo "SonarQube analysis"
-                //def tools = tool 'SonarQubeScanner'
+                def scannerHome = [scannerHome: 'SonarQubeScanner']
                 withSonarQubeEnv('SonarQubeScanner') {
-                    sh "${tools.sonarqubeScanner}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.host.url=${sonarHostUrl} -Dsonar.sources=src -Dsonar.java.binaries=${currentDir}/dmifactory/build -Dsonar.log.level=DEBUG"
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.host.url=${sonarHostUrl} -Dsonar.sources=src -Dsonar.java.binaries=${currentDir}/dmifactory/build -Dsonar.log.level=DEBUG"
 
                         // dmifactory/build
                         //-Dsonar.log
