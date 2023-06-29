@@ -1,4 +1,5 @@
 void call(){
+    node {
     def tools = [ant: 'Ant_Home']
     stage("Ant: Build"){
         println "build from the Ant library"
@@ -19,6 +20,7 @@ void call(){
         }
 
 
+}
 }
 
     
