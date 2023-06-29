@@ -62,6 +62,28 @@ void call(){
                 dir("${currentDir}/dmifactory") {
                     sh 'ant clean compile jspDeploy target war'
                 }
+
+            }
+
+            //def currentDir = sh(returnStdout: true,script: 'pwd').trim()
+            String projectKey = config.projectKey
+            String sonarHostUrl = config.sonarHostUrl
+
+            println "static code analysis from the sonarqube library and test1" 
+            script {
+                echo "SonarQube analysis"
+                def scannerHome = tool 'SonarQubeScanner'
+                withSonarQubeEnv('sonarserver') {
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.host.url=${sonarHostUrl} -Dsonar.sources=src -Dsonar.java.binaries=${currentDir}/dmifactory/build -Dsonar.log.level=DEBUG"
+
+                        // dmifactory/build
+                        //-Dsonar.log
+                        
+                    }          
+
+            }   
+
+            
                 //def currentDir1 = sh(returnStdout: true,script: 'pwd').trim()
                 //echo "Current directory: ${currentDir1}"
                 //sh "ls ${currentDir1}"
@@ -83,4 +105,4 @@ void call(){
 
 }
     
-}
+
