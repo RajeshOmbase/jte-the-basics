@@ -1,6 +1,5 @@
-void call(){
+{
     stage("SonarQube: Static Code Analysis"){
-        // parse configuration
         def currentDir = sh(returnStdout: true,script: 'pwd').trim()
         String projectKey = config.projectKey
         String sonarHostUrl = config.sonarHostUrl
