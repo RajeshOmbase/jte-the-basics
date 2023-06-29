@@ -1,12 +1,12 @@
 call()
-{
+{   println "static code analysis from the sonarqube library and test"
     stage("SonarQube: Static Code Analysis")
     {
         def currentDir = sh(returnStdout: true,script: 'pwd').trim()
         String projectKey = config.projectKey
         String sonarHostUrl = config.sonarHostUrl
 
-        println "static code analysis from the sonarqube library" 
+        println "static code analysis from the sonarqube library and test1" 
         script {
             echo "SonarQube analysis"
             def scannerHome = tool 'SonarQubeScanner'
