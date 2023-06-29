@@ -73,7 +73,7 @@ void call(){
             script {
                 echo "SonarQube analysis"
                 //def tools = tool 'SonarQubeScanner'
-                withSonarQubeEnv('sonarqube-token') {
+                withSonarQubeEnv('SonarQubeScanner') {
                     sh "${tools.sonarqubeScanner}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.host.url=${sonarHostUrl} -Dsonar.sources=src -Dsonar.java.binaries=${currentDir}/dmifactory/build -Dsonar.log.level=DEBUG"
 
                         // dmifactory/build
