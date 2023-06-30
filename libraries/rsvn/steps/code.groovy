@@ -1,6 +1,6 @@
 
 // Fetch code from svn repository
-@Validate
+
 void call()
 {
         node{
@@ -23,7 +23,7 @@ void call()
             sh 'ls -l'
 
            def currentDir = sh(returnStdout: true,script: 'pwd').trim()
-            echo context
+            
         // Print current directory
 
             echo "Current directory: ${currentDir}"
