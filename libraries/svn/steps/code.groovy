@@ -30,7 +30,7 @@ void call()
             println "inspect code starts"
             // env.LOCAL_STORAGE_PATH = currentDir
             // sh "cp -R ${localStoragePath} ${env.WORKSPACE}"
-            def sourceFolder = currentDir
+            def sourceFolder = ${currentDir} + '/dmifactory'
             // show content of sourceFolder/dmifactory
             sh "ls -l ${sourceFolder}"
             // Stash the folder structure and data

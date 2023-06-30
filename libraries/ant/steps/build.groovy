@@ -3,9 +3,11 @@ void call()
     node
     {
         def currentDir = sh(returnStdout: true,script: 'pwd').trim()
+        // create directory in the current workspace
+        sh "mkdir ${currentDir}/dmifactory"
         unstash 'myStash'
-        sh "cp -r ${env.WORKSPACE}/. ${currentDir}"
-        sh "ls -l ${currentDir}"
+        sh "cp -r ${env.WORKSPACE}/. ${currentDir}/dmifactory"
+        sh "ls -l ${currentDir}/dmifactory"
 
 
 
