@@ -23,9 +23,9 @@ void call()
             //sh "ls ${currentDir}"
 
             //def tools = [ant: 'Ant_Home']
-            def buildXmlPath = "${currentDir}/dmifactory/build.xml"
+            def buildXmlPath = currentDir + "/dmifactory/build.xml"
             echo "Build.xml Path: ${buildXmlPath}"
-            def buildXmlContent = readFile("${currentDir}/dmifactory/build.xml")
+            def buildXmlContent = readFile(buildXmlPath)
             echo "Build.xml Content:\n${buildXmlContent}"
             //def antHome = tool 'Ant_Home'
             withAnt(installation: 'Ant_Home') {
