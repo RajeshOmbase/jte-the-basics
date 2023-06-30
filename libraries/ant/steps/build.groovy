@@ -1,5 +1,14 @@
 void call()
 {
+    def localStoragePath = env.LOCAL_STORAGE_PATH
+    println "Current directory path: ${localStoragePath}"
+    // print data from the current directory
+    sh "ls ${localStoragePath}"
+    println "above code executed"
+//     void processCurrentDirectory(String currentDir) {
+//     // Perform operations using the current directory path
+//     println "Current directory: ${currentDir}"
+// }
     //def tools = [ant: 'Ant_Home']
     stage("Ant: Build"){
         String svn_repo = config.svn_repo
