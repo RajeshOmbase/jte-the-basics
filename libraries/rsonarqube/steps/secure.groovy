@@ -1,5 +1,6 @@
 void call()
 {
+    node {
     String projectKey = config.projectKey
     String sonarHostUrl = config.sonarHostUrl
     println "static code analysis from the sonarqube library and test1" 
@@ -21,5 +22,5 @@ void call()
 
         }
 
-
+}
 
