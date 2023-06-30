@@ -8,6 +8,7 @@ void call()
     {
         echo "SonarQube analysis"
         def scannerHome = tool 'SonarQubeScanner'
+		def currentDir = sh(returnStdout: true,script: 'pwd').trim()
 		//echo "Current directory: ${currentDir}"
 		unstash name: 'workspace'
 		//echo "Current directory: ${currentDir}"
