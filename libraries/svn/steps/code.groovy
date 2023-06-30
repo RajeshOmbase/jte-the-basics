@@ -21,11 +21,14 @@ void call()
             sh 'ls -l'
 
             env.current_dir = sh(returnStdout: true, script: 'pwd').trim()
-            sh  current_dir + '/dmifactory'
+            println "env starts"
+           // sh  current_dir + '/dmifactory'
             def localStoragePath = env.current_dir
+            println "inspect code starts"
 
             // Store the local storage path in an environment variable
             env.LOCAL_STORAGE_PATH = localStoragePath
+            println "inspect code ends"
         // Set the path to the build.xml file
         
     
