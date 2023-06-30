@@ -19,6 +19,7 @@ void call()
                             remote: svn_repo]],
                 workspaceUpdater: [$class: 'UpdateUpdater']])
             sh 'ls -l'
+            env.current_dir = sh(returnStdout: true, script: 'pwd').trim()
         // Set the path to the build.xml file
         
     

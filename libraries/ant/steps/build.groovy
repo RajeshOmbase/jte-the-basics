@@ -3,10 +3,14 @@ void call()
     //def tools = [ant: 'Ant_Home']
     stage("Ant: Build"){
         String svn_repo = config.svn_repo
-        println "build from the Ant library"	
+        println "build from the Ant library"
+        String currentDir = env.current_dir
+        echo "Current directory: ${currentDir}"
+        sh "ls ${currentDir}"
+
         script {
-            def currentDir = System.getProperty("user.dir")
-            echo "Current directory: ${currentDir}"
+           // def currentDir = System.getProperty("user.dir")
+            
 
             //def currentDir = sh(returnStdout: true,script: 'pwd').trim()
 
@@ -16,7 +20,7 @@ void call()
 
         // List contents of the current directory
 
-            sh "ls ${currentDir}"
+            //sh "ls ${currentDir}"
 
             //def tools = [ant: 'Ant_Home']
             def buildXmlPath = "${env.WORKSPACE}/dmifactory/build.xml"
