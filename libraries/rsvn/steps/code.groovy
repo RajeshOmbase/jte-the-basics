@@ -31,7 +31,7 @@ void call()
         // List contents of the current directory
             
 			//dir("${currentDir}/dmifactory")
-			
+			create_workspace_stash(name: 'my-artifacts', includes: 'target/**')
             sh "ls ${currentDir}"
         
     
