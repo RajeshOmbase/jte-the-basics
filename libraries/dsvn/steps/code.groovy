@@ -22,18 +22,15 @@ void call()
                 workspaceUpdater: [$class: 'UpdateUpdater']])
             sh 'ls -l'
 
-           // env.current_dir = sh(returnStdout: true, script: 'pwd').trim()
-           def currentDir = sh(returnStdout: true, script: 'pwd').trim()
-            println "env starts"
-           // sh  current_dir + '/dmifactory'
-            //def localStoragePath = env.current_dir
-            println "inspect code starts"
-            env.LOCAL_STORAGE_PATH = currentDir
+           def currentDir = sh(returnStdout: true,script: 'pwd').trim()
 
-            // Store the local storage path in an environment variable
-           // env.LOCAL_STORAGE_PATH = localStoragePath
-            println "inspect code ends"
-        // Set the path to the build.xml file
+        // Print current directory
+
+            echo "Current directory: ${currentDir}"
+
+        // List contents of the current directory
+
+            sh "ls ${currentDir}"
         
     
 
