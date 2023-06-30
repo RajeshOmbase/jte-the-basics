@@ -7,6 +7,7 @@ void call(){
         println "build from the Ant library"
 		//echo ${env.JOB_NAME}	
         sh 'echo $JOB_NAME'
+	      
 
 // Checkout code from SVN repository changes
 
