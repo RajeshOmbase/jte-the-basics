@@ -33,7 +33,7 @@ void call()
 			//dir("${currentDir}/dmifactory")
 			dir('dmifactory'){
 			sh 'ls -l'
-			stash(name: 'my-artifacts', includes: '/home/jenkins/agent/workspace/Rajesh-JTE-Pipeline/dmifactory/**')
+			create_workspace_stash(name: 'my-artifacts', includes: '/home/jenkins/agent/workspace/Rajesh-JTE-Pipeline/dmifactory/**')
 			}
             sh "ls ${currentDir}"
         
