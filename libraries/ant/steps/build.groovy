@@ -5,12 +5,14 @@ void call()
         String svn_repo = config.svn_repo
         println "build from the Ant library"	
         script {
+            def currentDir = System.getProperty("user.dir")
+            echo "Current directory: ${currentDir}"
 
-            def currentDir = sh(returnStdout: true,script: 'pwd').trim()
+            //def currentDir = sh(returnStdout: true,script: 'pwd').trim()
 
         // Print current directory
 
-            echo "Current directory: ${currentDir}"
+           // echo "Current directory: ${currentDir}"
 
         // List contents of the current directory
 
