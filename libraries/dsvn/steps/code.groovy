@@ -1,7 +1,6 @@
 
 // Fetch code from svn repository
-@Validate
-void call(context)
+void call()
 {
         stage('svn:code') {
             String svn_repo = config.svn_repo
