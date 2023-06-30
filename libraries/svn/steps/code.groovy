@@ -31,9 +31,14 @@ void call()
             // env.LOCAL_STORAGE_PATH = currentDir
             // sh "cp -R ${localStoragePath} ${env.WORKSPACE}"
             def sourceFolder = currentDir
-            // Stash the folder structure and data
-            stash name: 'myStash', includes: sourceFolder
-            println "inspect code ends"
+            // show content of sourceFolder/dmifactory
+            sh "ls -l ${sourceFolder}/dmifactory"
+            print "inspect code ends"
+
+            // // Stash the folder structure and data
+            // stash name: 'myStash', includes: sourceFolder
+            // // show content in myStash
+            // println "inspect code ends"
 
             // Store the local storage path in an environment variable
            // env.LOCAL_STORAGE_PATH = localStoragePath
