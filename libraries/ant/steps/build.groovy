@@ -4,9 +4,14 @@ void call()
     {
         def currentDir = sh(returnStdout: true,script: 'pwd').trim()
         unstash 'myStash'
-        def sourceFolder = currentDir
+        sh "cp -r ${env.WORKSPACE}/. ${currentDir}"
+        sh "ls -l ${currentDir}"
+
+
+
+        //def sourceFolder = ${currentDir} + "/dmifactory"
         // check the contents of the stash
-        sh "ls ${sourceFolder}"
+        //sh "ls ${sourceFolder}"
 
         // def localStoragePath = env.LOCAL_STORAGE_PATH
         // println "Current directory path: ${localStoragePath}"
@@ -44,13 +49,13 @@ void call()
 
             //def tools = [ant: 'Ant_Home']
                 println "start build"
-                def buildXmlPath = sourceFolder + "/dmifactory/build.xml"
+                def buildXmlPath = ${currentDir} + "/dmifactory/build.xml"
                 echo "Build.xml Path: ${buildXmlPath}"
                 def buildXmlContent = readFile(buildXmlPath)
                 echo "Build.xml Content:\n${buildXmlContent}"
                 //def antHome = tool 'Ant_Home'
                 withAnt(installation: 'Ant_Home') {
-                    dir("${sourceFolder}/dmifactory") {
+                    dir("${currentDir}/dmifactory") {
                         sh 'ant clean compile jspDeploy target war'
                     }
 

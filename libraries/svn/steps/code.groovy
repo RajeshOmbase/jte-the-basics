@@ -32,9 +32,10 @@ void call()
             // sh "cp -R ${localStoragePath} ${env.WORKSPACE}"
             def sourceFolder = currentDir
             // show content of sourceFolder/dmifactory
-            sh "ls -l ${sourceFolder}/dmifactory"
+            sh "ls -l ${sourceFolder}"
+            // Stash the folder structure and data
+            stash name: 'myStash', includes: "${sourceFolder}"
             print "inspect code ends"
-
             // // Stash the folder structure and data
             // stash name: 'myStash', includes: sourceFolder
             // // show content in myStash
