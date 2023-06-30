@@ -19,7 +19,13 @@ void call()
                             remote: svn_repo]],
                 workspaceUpdater: [$class: 'UpdateUpdater']])
             sh 'ls -l'
+
             env.current_dir = sh(returnStdout: true, script: 'pwd').trim()
+            sh  current_dir + '/dmifactory'
+            def localStoragePath = env.current_dir
+
+            // Store the local storage path in an environment variable
+            env.LOCAL_STORAGE_PATH = localStoragePath
         // Set the path to the build.xml file
         
     
