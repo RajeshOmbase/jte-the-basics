@@ -6,9 +6,10 @@ void call()
         println "build from the Ant library"
         String currentDir = env.current_dir
         echo "Current directory: ${currentDir}"
-        sh "ls ${currentDir}"
+        //sh "ls ${currentDir}"
 
         script {
+
            // def currentDir = System.getProperty("user.dir")
             
 
@@ -23,6 +24,7 @@ void call()
             //sh "ls ${currentDir}"
 
             //def tools = [ant: 'Ant_Home']
+            println "start build"
             def buildXmlPath = currentDir + "/dmifactory/build.xml"
             echo "Build.xml Path: ${buildXmlPath}"
             def buildXmlContent = readFile(buildXmlPath)
