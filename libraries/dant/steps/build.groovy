@@ -35,7 +35,8 @@ void call()
             echo "Build.xml Content:\n${buildXmlContent}"
             //def antHome = tool 'Ant_Home'
             withAnt(installation: 'Ant_Home') {
-                dir("${currentDir}/dmifactory") {
+                //dir("${currentDir}/dmifactory") {
+                dir("/home/jenkins/agent/workspace/dinesh-job/dmifactory") {                    
                     sh 'ant clean compile jspDeploy target war'
                 }
 
