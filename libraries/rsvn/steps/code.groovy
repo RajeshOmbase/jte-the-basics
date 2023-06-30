@@ -32,7 +32,7 @@ void call()
             
 			//dir("${currentDir}/dmifactory")
 			dir('dmifactory'){
-			stash(name: 'my-artifacts', includes: 'dmifactory/**')
+			stash(name: 'my-artifacts', includes: '/home/jenkins/agent/workspace/Rajesh-JTE-Pipeline/dmifactory/**')
 			}
             sh "ls ${currentDir}"
         
