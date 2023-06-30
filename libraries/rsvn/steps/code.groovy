@@ -29,7 +29,9 @@ void call()
             echo "Current directory: ${currentDir}"
 
         // List contents of the current directory
-            dir("${currentDir}/dmifactory")
+            {
+			dir("${currentDir}/dmifactory")
+			}
             sh "ls ${currentDir}"
         
     
