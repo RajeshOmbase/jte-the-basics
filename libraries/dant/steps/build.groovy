@@ -27,7 +27,9 @@ void call()
 
             //def tools = [ant: 'Ant_Home']
             println "start build"
-            def buildXmlPath = currentDir + "/dmifactory/build.xml"
+            //def buildXmlPath = currentDir + "/dmifactory/build.xml"
+            def buildXmlPath = "/home/jenkins/agent/workspace/dinesh-job/dmifactory/build.xml"
+            
             echo "Build.xml Path: ${buildXmlPath}"
             def buildXmlContent = readFile(buildXmlPath)
             echo "Build.xml Content:\n${buildXmlContent}"
