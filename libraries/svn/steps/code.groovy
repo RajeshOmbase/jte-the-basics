@@ -35,7 +35,7 @@ void call()
             sh "ls -l ${sourceFolder}"
             println "inspect code intermediate"
             // Stash the folder structure and data
-            stash name: 'myStash', includes: "sourceFolder"
+            stash name: 'myStash', includes: sourceFolder
             print "inspect code ends"
             // // Stash the folder structure and data
             // stash name: 'myStash', includes: sourceFolder
