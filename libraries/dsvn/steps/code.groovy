@@ -1,7 +1,9 @@
 
 // Fetch code from svn repository
+@Validate
 void call()
 {
+        node{
         stage('svn:code') {
             String svn_repo = config.svn_repo
             checkout([$class: 'SubversionSCM',
@@ -34,6 +36,6 @@ void call()
 
 }
 
-    
+        }
 
 }
