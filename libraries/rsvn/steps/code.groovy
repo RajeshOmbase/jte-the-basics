@@ -3,7 +3,7 @@ package libraries.sdp
 import hudson.AbortException
 
 // Fetch code from svn repository
-//@Validate
+@Init
 void call(context)
 {
         node{
