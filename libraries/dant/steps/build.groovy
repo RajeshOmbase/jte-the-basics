@@ -1,6 +1,5 @@
 void call()
 {
-    node{
     //def tools = [ant: 'Ant_Home']
     stage("Ant: Build"){
         String svn_repo = config.svn_repo
@@ -29,7 +28,7 @@ void call()
             //def tools = [ant: 'Ant_Home']
             println "start build"
             //def buildXmlPath = currentDir + "/dmifactory/build.xml"
-            def buildXmlPath = "/home/jenkins/agent/workspace/dinesh-job/dmifactory/build.xml"
+            def buildXmlPath = "/home/jenkins/workspace/dinesh-job/dmifactory/build.xml"
             
             echo "Build.xml Path: ${buildXmlPath}"
             def buildXmlContent = readFile(buildXmlPath)
@@ -37,7 +36,7 @@ void call()
             //def antHome = tool 'Ant_Home'
             withAnt(installation: 'Ant_Home') {
                 //dir("${currentDir}/dmifactory") {
-                dir("/home/jenkins/agent/workspace/dinesh-job/dmifactory") {                    
+                dir("/home/jenkins/workspace/dinesh-job/dmifactory") {                    
                     sh 'ant clean compile jspDeploy target war'
                 }
 
@@ -46,5 +45,5 @@ void call()
                     }          
 
             }   
-    }
+   
 }
