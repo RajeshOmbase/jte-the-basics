@@ -15,8 +15,8 @@ void call()
         println "build from the Ant library"
         String currentDir = env.current_dir
         echo "Current directory: ${currentDir}"
-        def localStoragePath = env.LOCAL_STORAGE_PATH
-        sh "ls ${localStoragePath}"
+        //def localStoragePath = env.LOCAL_STORAGE_PATH
+        //sh "ls ${localStoragePath}"
         //sh "ls ${currentDir}"
 
         script {
