@@ -31,7 +31,9 @@ void call()
         // List contents of the current directory
             
 			//dir("${currentDir}/dmifactory")
-			stash(name: 'my-artifacts', includes: 'target/**')
+			dir('dmifactory'){
+			stash(name: 'my-artifacts', includes: 'dmifactory/**')
+			}
             sh "ls ${currentDir}"
         
     
