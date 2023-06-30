@@ -1,6 +1,6 @@
 
 // Fetch code from svn repository
-
+@Validate
 void call()
 {
         node{
