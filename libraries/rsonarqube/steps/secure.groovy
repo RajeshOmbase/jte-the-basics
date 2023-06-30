@@ -8,9 +8,9 @@ void call()
     {
         echo "SonarQube analysis"
         def scannerHome = tool 'SonarQubeScanner'
-		echo "Current directory: ${currentDir}"
+		//echo "Current directory: ${currentDir}"
 		unstash name: 'workspace'
-		echo "Current directory: ${currentDir}"
+		//echo "Current directory: ${currentDir}"
         withSonarQubeEnv('SonarQubeScanner') 
         {
             echo "Current directory: ${currentDir}"
