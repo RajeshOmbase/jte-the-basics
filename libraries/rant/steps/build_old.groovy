@@ -16,12 +16,15 @@ void call()
             echo "Current directory: ${currentDir}"
             unstash name: 'workspace'
 			sh "ls ${currentDir}"
-            def buildXmlPath = "${env.WORKSPACE}/dmifactory/build.xml"
-            def buildXmlContent = readFile("${env.WORKSPACE}/dmifactory/build.xml")
+            //def buildXmlPath = "${env.WORKSPACE}/dmifactory/build.xml"
+			def buildXmlPath = "${env.WORKSPACE}/build.xml"
+            //def buildXmlContent = readFile("${env.WORKSPACE}/dmifactory/build.xml")
+			def buildXmlContent = readFile("${env.WORKSPACE}/build.xml")
             echo "Build.xml Content:\n${buildXmlContent}"
             //def antHome = tool 'Ant_Home'
             withAnt(installation: 'Ant_Home') {
-                dir("${currentDir}/dmifactory") {
+                //dir("${currentDir}/dmifactory")
+				dir("${currentDir}") {
                     sh 'ant clean compile jspDeploy target war'
                 } 
                 
