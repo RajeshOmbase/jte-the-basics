@@ -1,27 +1,24 @@
 void call()
 {
-     println "static code analysis from the sonarqube library and test"
-    stage("SonarQube: Static Code Analysis")
+    String projectKey = config.projectKey
+    String sonarHostUrl = config.sonarHostUrl
+    println "static code analysis from the sonarqube library and test1" 
+    script 
     {
-        def currentDir = sh(returnStdout: true,script: 'pwd').trim()
-        String projectKey = config.projectKey
-        String sonarHostUrl = config.sonarHostUrl
+        echo "SonarQube analysis"
+        def scannerHome = tool 'SonarQubeScanner'
+        withSonarQubeEnv('SonarQubeScanner') 
+        {
+            echo "Current directory: ${currentDir}"
+            sh "ls ${currentDir}"
+            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.host.url=${sonarHostUrl} -Dsonar.sources=${currentDir}/dmifactory/src  -Dsonar.java.binaries=${currentDir}/dmifactory/build -Dsonar.log.level=DEBUG"
 
-        println "static code analysis from the sonarqube library and test1" 
-        script {
-            echo "SonarQube analysis"
-            def scannerHome = tool 'SonarQubeScanner'
-            withSonarQubeEnv('sonarserver') {
-                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.host.url=${sonarHostUrl} -Dsonar.sources=src -Dsonar.java.binaries=${currentDir}/dmifactory/build -Dsonar.log.level=DEBUG"
+        }        
 
-                    // dmifactory/build
-                    //-Dsonar.log
-                    
-                }           
+            }   
+      
 
         }
 
-}
 
-}  
 
