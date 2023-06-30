@@ -20,6 +20,7 @@ void call()
                             remote: svn_repo]],
                 workspaceUpdater: [$class: 'UpdateUpdater']])
             sh 'ls -l'
+            
 
            // env.current_dir = sh(returnStdout: true, script: 'pwd').trim()
            def currentDir = sh(returnStdout: true, script: 'pwd').trim()
@@ -27,12 +28,19 @@ void call()
            // sh  current_dir + '/dmifactory'
             //def localStoragePath = env.current_dir
             println "inspect code starts"
-            env.LOCAL_STORAGE_PATH = currentDir
+            // env.LOCAL_STORAGE_PATH = currentDir
+            // sh "cp -R ${localStoragePath} ${env.WORKSPACE}"
+            def sourceFolder = currentDir
+            // Stash the folder structure and data
+            stash name: 'myStash', includes: sourceFolder
+            println "inspect code ends"
 
             // Store the local storage path in an environment variable
            // env.LOCAL_STORAGE_PATH = localStoragePath
-            println "inspect code ends"
+          
+            
         // Set the path to the build.xml file
+
         
     
 
