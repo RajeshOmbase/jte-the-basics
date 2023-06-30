@@ -1,8 +1,5 @@
 void call()
 {
-    node
-    {
-      
     //def tools = [ant: 'Ant_Home']
     stage("Ant: Build"){
         String svn_repo = config.svn_repo
@@ -46,9 +43,4 @@ void call()
 
             }   
 
-    }
-    
-
-        }
-    
-
+}
