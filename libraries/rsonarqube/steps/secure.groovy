@@ -15,7 +15,7 @@ void call()
         {
             echo "Current directory: ${currentDir}"
             sh "ls ${currentDir}"
-            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.host.url=${sonarHostUrl} -Dsonar.sources=${currentDir}/src  -Dsonar.java.binaries=${currentDir}/dmifactory/build -Dsonar.log.level=DEBUG"
+            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${projectKey} -Dsonar.host.url=${sonarHostUrl} -Dsonar.sources=${currentDir}/src  -Dsonar.java.binaries=${currentDir}/build -Dsonar.log.level=DEBUG"
 
         }        
 
