@@ -1,6 +1,8 @@
 void call()
 {
-    def localStoragePath = env.LOCAL_STORAGE_PATH
+    node
+    {
+        def localStoragePath = env.LOCAL_STORAGE_PATH
     println "Current directory path: ${localStoragePath}"
     // print data from the current directory
     sh "ls ${localStoragePath}"
@@ -51,6 +53,9 @@ void call()
                     }          
 
             }   
+
+    }
+    
 
         }
     
