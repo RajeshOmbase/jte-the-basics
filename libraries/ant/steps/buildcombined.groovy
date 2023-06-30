@@ -4,7 +4,8 @@ void call(){
     //def tools = [ant: 'Ant_Home']
     stage("Ant: Build"){
         String svn_repo = config.svn_repo
-        println "build from the Ant library"	
+        println "build from the Ant library"
+		println ${env.JOB_NAME}	
         
 
 // Checkout code from SVN repository changes
