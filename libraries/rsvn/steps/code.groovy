@@ -30,7 +30,7 @@ void call()
 
         // List contents of the current directory
             
-			dir("${currentDir}/dmifactory")
+			//dir("${currentDir}/dmifactory")
 			
             sh "ls ${currentDir}"
         
