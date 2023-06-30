@@ -4,10 +4,11 @@ void call()
     {
         def currentDir = sh(returnStdout: true,script: 'pwd').trim()
         // create directory in the current workspace
-        sh "mkdir ${currentDir}/dmifactory"
         unstash 'myStash'
-        sh "cp -r ${env.WORKSPACE}/. ${currentDir}/dmifactory"
-        sh "ls -l ${currentDir}/dmifactory"
+        def sourceFolder = "${currentDir}/dmifactory"
+        sh "mkdir -p  ${sourceFolder}"
+        sh "cp -r ${env.WORKSPACE}/. ${sourceFolder}"
+        sh "ls -l ${sourceFolder}"
 
 
 
