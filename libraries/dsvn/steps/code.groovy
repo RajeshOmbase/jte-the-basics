@@ -1,7 +1,7 @@
 
 // Fetch code from svn repository
-@Init
-void call()
+@Validate
+void call(context)
 {
     node {
         stage('svn:code') {
@@ -23,7 +23,7 @@ void call()
             sh 'ls -l'
 
            def currentDir = sh(returnStdout: true,script: 'pwd').trim()
-
+            echo context
         // Print current directory
 
             echo "Current directory: ${currentDir}"
