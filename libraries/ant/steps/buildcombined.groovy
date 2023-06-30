@@ -5,8 +5,7 @@ void call(){
     stage("Ant: Build"){
         String svn_repo = config.svn_repo
         println "build from the Ant library"
-	echo ${env.JOB_NAME}	
-        
+	echo $JOB_NAME        
 
 // Checkout code from SVN repository changes
 
