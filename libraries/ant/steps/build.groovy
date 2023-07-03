@@ -88,7 +88,7 @@ void call(){
             }
 
             // Configure Artifactory server using Jenkins Artifactory Plugin
-            String artifactoryUrl = config.artifactory_url
+            String artifactory_url = config.artifactory_url
             String artifactory_credentials = config.artifactory_credentials
             String artifactory_global_id = config.artifactory_global_id
             String artifactory_repo = config.artifactory_repo
