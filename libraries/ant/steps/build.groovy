@@ -91,7 +91,7 @@ void call(){
             String artifactoryUrl = config.artifactory_url
             String artifactory_credentials = config.artifactory_credentials
             String artifactory_global_id = config.artifactory_global_id
-            Sgtring artifactory_repo = config.artifactory_repo
+            String artifactory_repo = config.artifactory_repo
             rtServer (
                 id: artifactory_global_id,
                 url: artifactory_url,
