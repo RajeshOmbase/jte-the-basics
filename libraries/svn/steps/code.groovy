@@ -1,6 +1,7 @@
-
+package libraries.sdp
+import hudson.AbortException
 // Fetch code from svn repository
-void call()
+void call(context)
 {
     node {
         stage('svn:code') {
@@ -23,20 +24,20 @@ void call()
             
 
            // env.current_dir = sh(returnStdout: true, script: 'pwd').trim()
-           def currentDir = sh(returnStdout: true, script: 'pwd').trim()
-            println "env starts"
-           // sh  current_dir + '/dmifactory'
-            //def localStoragePath = env.current_dir
-            println "inspect code starts"
-            // env.LOCAL_STORAGE_PATH = currentDir
-            // sh "cp -R ${localStoragePath} ${env.WORKSPACE}"
-            def sourceFolder = currentDir + '/dmifactory'
-            // show content of sourceFolder/dmifactory
-            sh "ls -l ${sourceFolder}"
-            println "inspect code intermediate"
-            // Stash the folder structure and data
-            stash includes: sourceFolder + "/**" , name: 'myStash'
-            print "inspect code ends"
+        //    def currentDir = sh(returnStdout: true, script: 'pwd').trim()
+        //     println "env starts"
+        //    // sh  current_dir + '/dmifactory'
+        //     //def localStoragePath = env.current_dir
+        //     println "inspect code starts"
+        //     // env.LOCAL_STORAGE_PATH = currentDir
+        //     // sh "cp -R ${localStoragePath} ${env.WORKSPACE}"
+        //     def sourceFolder = currentDir + '/dmifactory'
+        //     // show content of sourceFolder/dmifactory
+        //     sh "ls -l ${sourceFolder}"
+        //     println "inspect code intermediate"
+        //     // Stash the folder structure and data
+        //     stash includes: sourceFolder + "/**" , name: 'myStash'
+        //     print "inspect code ends"
             // // Stash the folder structure and data
             // stash name: 'myStash', includes: sourceFolder
             // // show content in myStash
