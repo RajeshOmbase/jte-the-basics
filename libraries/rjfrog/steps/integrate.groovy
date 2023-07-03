@@ -1,7 +1,7 @@
 package libraries.sdp
 
 import hudson.AbortException
-void call
+void call()
 {
     node 
     {
