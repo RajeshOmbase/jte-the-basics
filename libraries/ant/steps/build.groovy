@@ -29,8 +29,8 @@ void call()
         stage("Ant: Build"){
             String svn_repo = config.svn_repo
             println "build from the Ant library"
-            //String currentDir = env.current_dir
-            //echo "Current directory: ${currentDir}"
+            String currentDir = env.current_dir
+            echo "Current directory: ${currentDir}"
         //def localStoragePath = env.LOCAL_STORAGE_PATH
         //sh "ls ${localStoragePath}"
         //sh "ls ${currentDir}"
