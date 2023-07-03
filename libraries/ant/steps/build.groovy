@@ -98,19 +98,31 @@ void call(){
                 credentialsId: artifactory_credentials
             )   
 
-            
 
             rtUpload (
-                serverId: artifactory_global_id,
-                spec: groovy.json.JsonOutput.toJson([
-                    files: [
-                        [
-                pattern: "**/*.war",
-                target: artifactory_repo
-                ]
-            ]
-        ])
-    )
+                    serverId: artifactory_global_id,
+                    spec: '''{
+                        "files": [
+                            {
+                                "pattern": "**/*.war",
+                                "target": "java_sample_app"
+                            }
+                        ]
+                    }'''
+                )
+            
+
+    //         rtUpload (
+    //             serverId: artifactory_global_id,
+    //             spec: groovy.json.JsonOutput.toJson([
+    //                 files: [
+    //                     [
+    //             pattern: "**/*.war",
+    //             target: artifactory_repo
+    //             ]
+    //         ]
+    //     ])
+    // )
 
 
 
