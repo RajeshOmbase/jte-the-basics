@@ -19,7 +19,10 @@ libraries{
         artifactory_credentials = "jfrog_credentials"
         artifactory_repo = "java_sample_app"
     }
-    //ansible
+    tomcat
+    {
+        tomcat_url = "http://ec2-35-83-251-194.us-west-2.compute.amazonaws.com"
+    }
 }
 
 allow_scm_jenkinsfile = true 
