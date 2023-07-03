@@ -11,6 +11,14 @@ libraries{
         sonarHostUrl = "http://ec2-35-83-131-175.us-west-2.compute.amazonaws.com"
 
     }
+    //artifactory. take reference from buildcombined.groovy
+    jfrog 
+    {
+        artifactory_global_id = "artifactory-server"
+        artifactory_url = "http://ec2-44-234-63-153.us-west-2.compute.amazonaws.com"
+        artifactory_credentials = "jfrog_credentials"
+        artifactory_repo = "java_sample_app"
+    }
     //ansible
 }
 
