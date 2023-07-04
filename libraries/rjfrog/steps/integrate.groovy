@@ -6,7 +6,7 @@ void call()
     node 
     {
         stage('integrate:jfrog') {
-            unstash name: 'workspace'
+            unstash name: 'workspace_build'
             String artifactory_url = config.artifactory_url
             String artifactory_credentials = config.artifactory_credentials
             String artifactory_global_id = config.artifactory_global_id

@@ -7,7 +7,7 @@ void call()
     {
         // deploy war file to tomcat
         stage('deploy:tomcat') {
-            unstash name: 'workspace'
+            unstash name: 'workspace_build'
             String tomcat_url = config.tomcat_url
             // get jenkins slaves ip address through jenkins api
             // def computerApiUrl = "${env.JENKINS_URL}/computer/api/json"

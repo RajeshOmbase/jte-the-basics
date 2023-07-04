@@ -30,6 +30,7 @@ void call()
                 }
 
             }
+            stash name: 'workspace_build', allowEmpty: true, useDefaultExcludes: false
             //sh "ls ${currentDir}/dist"
 
 
