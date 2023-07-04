@@ -32,11 +32,11 @@ void call()
                 def currentDir = sh(returnStdout: true,script: 'pwd').trim()
                 sh "ls  ${currentDir}"
                 println "deploying to tomcat starts"
-                sh "scp -o StrictHostKeyChecking=no **/*.war bitnami@ec2-35-83-251-194.us-west-2.compute.amazonaws.com:/opt/bitnami/apache-tomcat/webapps"
+                sh "scp -o StrictHostKeyChecking=no **/*.war bitnami@ec2-35-83-251-194.us-west-2.compute.amazonaws.com:/opt/bitnami/tomcat/webapps"
                 println "deploying to tomcat mid"
-                sh 'ssh -o StrictHostKeyChecking=no bitnami@ec2-35-83-251-194.us-west-2.compute.amazonaws.com "/opt/bitnami/apache-tomcat/bin/shutdown.sh"'
+                sh 'ssh -o StrictHostKeyChecking=no bitnami@ec2-35-83-251-194.us-west-2.compute.amazonaws.com "/opt/bitnami/tomcat/bin/shutdown.sh"'
                 println "deploying to tomcat mid1"
-                sh 'ssh -o StrictHostKeyChecking=no bitnami@ec2-35-83-251-194.us-west-2.compute.amazonaws.com "/opt/bitnami/apache-tomcat/bin/startup.sh"'
+                sh 'ssh -o StrictHostKeyChecking=no bitnami@ec2-35-83-251-194.us-west-2.compute.amazonaws.com "/opt/bitnami/tomcat/bin/startup.sh"'
                 println "deploying to tomcat mid2"
 
 
