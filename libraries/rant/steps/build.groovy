@@ -26,9 +26,12 @@ void call()
                 //dir("${currentDir}/dmifactory")
 				dir("${currentDir}") {
                     sh 'ant clean compile jspDeploy target war'
-                } 
-                
-        }
+                }
+
+            }
+            sh "ls ${currentDir}/dist"
+
+
         }
 
        
