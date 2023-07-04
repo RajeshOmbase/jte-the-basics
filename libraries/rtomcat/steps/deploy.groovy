@@ -1,5 +1,6 @@
 package libraries.sdp
 import hudson.AbortException
+import groovy.json.JsonSlurper
 void call()
 {
     node
@@ -12,7 +13,7 @@ void call()
             def computerApiUrl = "${env.JENKINS_URL}/computer/api/json"
             def computerApiJson = sh(script: "curl -s ${computerApiUrl}", returnStdout: true).trim()
             echo "Jenkins Slave API: ${computerApiJson}"
-            def computerApiData = new JsonSlurperClassic().parseText(computerApiJson)
+            def computerApiData = new JsonSlurper().parseText(computerApiJson)
             def currentSlave = computerApiData.computer.find { it.displayName == env.NODE_NAME }
             def slaveIp = currentSlave.actions.find { it._class == 'hudson.slaves.EnvironmentVariablesNodeProperty' }
                         .envVars.find { it.key == 'JENKINS_SLAVE_IP' }?.value
