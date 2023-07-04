@@ -8,7 +8,9 @@ void call(context)
 {
         node{
         stage('svn:code') {
+	    
             String svn_repo = config.svn_repo
+	    println "checkout starts from java branch"
             checkout([$class: 'SubversionSCM',
                 additionalCredentials: [], 
                 excludedCommitMessages: '', 
