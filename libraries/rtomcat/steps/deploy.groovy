@@ -11,11 +11,18 @@ void call()
             sshagent(['tomcat_deployment_cred']) {
                 def currentDir = sh(returnStdout: true,script: 'pwd').trim()
                 sh "ls  ${currentDir}"
-                sh "scp -o StrictHostKeyChecking=no **/*.war ${tomcat_url}:/tmp"
+                println "deploying to tomcat starts"
+                sh "scp -o StrictHostKeyChecking=no **/*.war bitnami@35-83-251-194:/opt/tomcat/webapps"
                 println "deploying to tomcat mid"
-                sh "ssh -o StrictHostKeyChecking=no ${tomcat_url} /opt/bitnami/tomcat/bin/shutdown.sh"
+                sh 'ssh -o StrictHostKeyChecking=no bitnami@35-83-251-194"/opt/tomcat/bin/shutdown.sh"'
                 println "deploying to tomcat mid1"
-                sh "ssh -o StrictHostKeyChecking=no ${tomcat_url} /opt/bitnami/tomcat/bin/startup.sh"
+                sh 'ssh -o StrictHostKeyChecking=no bitnami@35-83-251-194"/opt/tomcat/bin/startup.sh"'
+                println "deploying to tomcat mid2"
+                // sh "scp -o StrictHostKeyChecking=no **/*.war ${tomcat_url}:/tmp"
+                // println "deploying to tomcat mid"
+                // sh "ssh -o StrictHostKeyChecking=no ${tomcat_url} /opt/bitnami/tomcat/bin/shutdown.sh"
+                // println "deploying to tomcat mid1"
+                // sh "ssh -o StrictHostKeyChecking=no ${tomcat_url} /opt/bitnami/tomcat/bin/startup.sh"
                                  
                     }
             
