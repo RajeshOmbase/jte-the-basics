@@ -13,7 +13,7 @@ void call()
             String tomcat_war_deploy_path = config.tomcat_war_deploy_path
             String tomcat_shutdown_path = config.tomcat_shutdown_path
             String tomcat_startup_path = config.tomcat_startup_path
-            sshagent([${tomcat_global_id}]) {
+            sshagent([tomcat_global_id]) {
                 def currentDir = sh(returnStdout: true,script: 'pwd').trim()
                 sh "ls  ${currentDir}"
                 println "deploying to tomcat starts"
