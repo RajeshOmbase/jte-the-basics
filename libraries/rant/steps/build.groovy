@@ -1,49 +1,41 @@
+package libraries.sdp
+
+import hudson.AbortException
+
 void call()
-{
-    //def tools = [ant: 'Ant_Home']
+{   
+    node{
+    //def another_script = load 'jte-the-basics/libraries/ant/steps/build.groovy'
+    def tools = [ant: 'Ant_Home']
     stage("Ant: Build"){
-        String svn_repo = config.svn_repo
-        println "build from the Ant library"
-        String currentDir = env.current_dir
-        echo "Current directory: ${currentDir}"
-        //def localStoragePath = env.LOCAL_STORAGE_PATH
-        //sh "ls ${localStoragePath}"
-        //sh "ls ${currentDir}"
-
-        script {
-
-           // def currentDir = System.getProperty("user.dir")
-            
-
-            //def currentDir = sh(returnStdout: true,script: 'pwd').trim()
-
-        // Print current directory
-
-           // echo "Current directory: ${currentDir}"
-
-        // List contents of the current directory
-
-            //sh "ls ${currentDir}"
-
-            //def tools = [ant: 'Ant_Home']
-            println "start build"
-            //def buildXmlPath = currentDir + "/dmifactory/build.xml"
-            def buildXmlPath = "/home/jenkins/workspace/dinesh-job/dmifactory/build.xml"
-            
-            echo "Build.xml Path: ${buildXmlPath}"
-            def buildXmlContent = readFile(buildXmlPath)
+        script
+        {
+            println "build from the Ant library"
+			
+            def currentDir = sh(returnStdout: true,script: 'pwd').trim()
+            echo "Current directory: ${currentDir}"
+            unstash name: 'workspace'
+			sh "ls ${currentDir}"
+            //def buildXmlPath = "${env.WORKSPACE}/dmifactory/build.xml"
+			def buildXmlPath = "${env.WORKSPACE}/build.xml"
+            //def buildXmlContent = readFile("${env.WORKSPACE}/dmifactory/build.xml")
+			def buildXmlContent = readFile("${env.WORKSPACE}/build.xml")
             echo "Build.xml Content:\n${buildXmlContent}"
             //def antHome = tool 'Ant_Home'
             withAnt(installation: 'Ant_Home') {
-                //dir("${currentDir}/dmifactory") {
-                dir("/home/jenkins/workspace/dinesh-job/dmifactory") {                    
+                //dir("${currentDir}/dmifactory")
+				dir("${currentDir}") {
                     sh 'ant clean compile jspDeploy target war'
-                }
+                } 
+                
+        }
+        }
 
-            }
-                        
-                    }          
+       
 
-            }   
-   
+       }
+
+
 }
+
+}    
