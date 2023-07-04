@@ -16,6 +16,7 @@ void call()
             echo "Current directory: ${currentDir}"
             unstash name: 'workspace'
 			sh "ls ${currentDir}"
+            sh "ls ${currentDir}/src/main/webapp"
             //def buildXmlPath = "${env.WORKSPACE}/dmifactory/build.xml"
 			def buildXmlPath = "${env.WORKSPACE}/build.xml"
             //def buildXmlContent = readFile("${env.WORKSPACE}/dmifactory/build.xml")
@@ -29,7 +30,7 @@ void call()
                 }
 
             }
-            sh "ls ${currentDir}/dist"
+            //sh "ls ${currentDir}/dist"
 
 
         }
