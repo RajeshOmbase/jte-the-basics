@@ -1,6 +1,6 @@
 package libraries.sdp
 import hudson.AbortException
-import groovy.json.JsonSlurper
+//import groovy.json.JsonSlurper
 void call()
 {
     node
@@ -10,22 +10,22 @@ void call()
             unstash name: 'workspace'
             String tomcat_url = config.tomcat_url
             // get jenkins slaves ip address through jenkins api
-            def computerApiUrl = "${env.JENKINS_URL}/computer/api/json"
-            def computerApiJson = sh(script: "curl -s ${computerApiUrl}", returnStdout: true).trim()
-            echo "Jenkins Slave API: ${computerApiJson}"
-            def computerApiData = new JsonSlurper().parseText(computerApiJson)
-            def currentSlave = computerApiData.computer.find { it.displayName == env.NODE_NAME }
-            def slaveIp = currentSlave.actions.find { it._class == 'hudson.slaves.EnvironmentVariablesNodeProperty' }
-                        .envVars.find { it.key == 'JENKINS_SLAVE_IP' }?.value
+            // def computerApiUrl = "${env.JENKINS_URL}/computer/api/json"
+            // def computerApiJson = sh(script: "curl -s ${computerApiUrl}", returnStdout: true).trim()
+            // echo "Jenkins Slave API: ${computerApiJson}"
+            // def computerApiData = new JsonSlurper().parseText(computerApiJson)
+            // def currentSlave = computerApiData.computer.find { it.displayName == env.NODE_NAME }
+            // def slaveIp = currentSlave.actions.find { it._class == 'hudson.slaves.EnvironmentVariablesNodeProperty' }
+            //             .envVars.find { it.key == 'JENKINS_SLAVE_IP' }?.value
 
-            if (slaveIp) {
-                println "Jenkins Slave IP: ${slaveIp}"
-            // Use this IP address in your security group configuration or other steps as needed
-            } 
-            else 
-            {
-            error("Failed to retrieve Jenkins Slave IP")
-            }
+            // if (slaveIp) {
+            //     println "Jenkins Slave IP: ${slaveIp}"
+            // // Use this IP address in your security group configuration or other steps as needed
+            // } 
+            // else 
+            // {
+            // error("Failed to retrieve Jenkins Slave IP")
+            // }
             
     
             sshagent(['tomcat_deployment_cred']) {
