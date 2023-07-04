@@ -11,7 +11,8 @@ void call()
             // get jenkins slaves ip address through jenkins api
             def computerApiUrl = "${env.JENKINS_URL}/computer/api/json"
             def computerApiJson = sh(script: "curl -s ${computerApiUrl}", returnStdout: true).trim()
-            def computerApiData = new JsonSlurper().parseText(computerApiJson)
+            echo "Jenkins Slave API: ${computerApiJson}"
+            def computerApiData = new JsonSlurperClassic().parseText(computerApiJson)
             def currentSlave = computerApiData.computer.find { it.displayName == env.NODE_NAME }
             def slaveIp = currentSlave.actions.find { it._class == 'hudson.slaves.EnvironmentVariablesNodeProperty' }
                         .envVars.find { it.key == 'JENKINS_SLAVE_IP' }?.value
